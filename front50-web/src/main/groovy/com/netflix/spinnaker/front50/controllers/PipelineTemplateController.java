@@ -72,6 +72,11 @@ public class PipelineTemplateController {
     return pipelineTemplate;
   }
 
+  @RequestMapping(value = "{id}", method = RequestMethod.PUT)
+  void delete(@PathVariable String id) {
+    getPipelineTemplateDAO().delete(id);
+  }
+
   private void checkForDuplicatePipelineTemplate(String id) {
     try {
       getPipelineTemplateDAO().findById(id);
